@@ -14,7 +14,7 @@
       <nav>
         <div class="container">
           <a class="logo" href="<?php echo home_url(); ?>">
-            <h1>Test</h1>
+            <img src="#" alt="Logo">
           </a>
           <div class="menu">
             MENU

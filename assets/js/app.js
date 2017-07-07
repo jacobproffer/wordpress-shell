@@ -1,10 +1,10 @@
 var body = $('html, body');
-var hamburger = $('.hamburger');
+var menu = $('.menu');
 var mainNavigation = $('.main-nav');
 var mainHeader = $('.main-header');
 var headerHeight = mainHeader.outerHeight();
 
-hamburger.click(function() {
+menu.click(function() {
 	mainNavigation.toggleClass('nav-open');
 	$(this).toggleClass('navOpen');
 	mainHeader.toggleClass('open');
@@ -15,7 +15,7 @@ hamburger.click(function() {
 $('a[href*="#"]').click(function() {
 	mainNavigation.removeClass('nav-open');
 	mainHeader.removeClass('open');
-	hamburger.removeClass('navOpen');
+	menu.removeClass('navOpen');
 	body.removeClass('body-modal-open');
 	body.removeClass('disable-scrolling');
 });
