@@ -1,0 +1,12 @@
+.DS_Store
+*.log
+.sass-cache
+cache
+node_modules
+config.codekit
+
+#Wordpress
+admin/*
+!admin/wp-content/
+admin/wp-content/*
+!admin/wp-content/themes/
