@@ -1,5 +1,6 @@
 'use strict';
 
+// Requires + Variables
 var gulp        = require('gulp'),
     sass        = require('gulp-sass'),
     cssmin      = require('gulp-cssmin'),
@@ -14,13 +15,7 @@ var gulp        = require('gulp'),
       '../assets/js/app.js'
     ];
 
-// Static Server + watching scss/html files
-gulp.task('serve', ['sass', 'js'], function() {
-    gulp.watch('../assets/scss/**/*.scss', ['sass']);
-    gulp.watch('../assets/js/**/*.js', ['js']);
-});
-
-// Configure CSS tasks.
+// Configure css tasks
 gulp.task('sass', function () {
   return gulp.src('../assets/scss/**/*.scss')
     .pipe(sass.sync().on('error', sass.logError))
@@ -30,7 +25,7 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('../dist/css'))
 });
 
-// Configure JS.
+// Configure js tasks
 gulp.task('js', function() {
   return gulp.src(scripts)
     .pipe(uglify())
@@ -39,4 +34,11 @@ gulp.task('js', function() {
     .pipe(gulp.dest('../dist/js'))
 });
 
+// Watch scss/js files
+gulp.task('serve', ['sass', 'js'], function() {
+    gulp.watch('../assets/scss/**/*.scss', ['sass']);
+    gulp.watch('../assets/js/**/*.js', ['js']);
+});
+
+// Default task
 gulp.task('default', ['sass', 'js', 'serve']);
