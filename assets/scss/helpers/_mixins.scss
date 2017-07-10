@@ -7,16 +7,6 @@
           box-sizing: $box-model;
 }
 
-/* Usage */
-
-*,
-*:after,
-*:before {
-  @include box-sizing(border-box);
-}
-
-
-
 /* CSS3 Manipulation
   ========================================================================== */
 
@@ -29,14 +19,6 @@
   opacity: $opacity;
   $opacity-ie: $opacity * 100;
   filter: alpha(opacity=$opacity-ie); //IE8
-}
-
-@mixin bw() {
-	-webkit-filter: grayscale(100%);
-	-moz-filter: grayscale(100%);
-	-ms-filter: grayscale(100%);
-	-o-filter: grayscale(100%);
-	filter: grayscale(100%);
 }
 
 @mixin transform($args) {
@@ -84,11 +66,6 @@
 @mixin background-cover($url) {
   background: url($url) no-repeat center center fixed;
   background-size: cover;
-}
-
-@mixin blur-text($amount: 3px, $color: rgba(0, 0, 0, 0.5)) {
-	color: transparent;
-	text-shadow: 0 0 $amount $color;
 }
 
 
@@ -241,9 +218,4 @@
       }
     }
   }
-}
-
-@mixin line-height($heightValue: 12 ){
-    line-height: $heightValue + px; //fallback for old browsers
-    line-height: (0.125 * $heightValue) + rem;
 }
