@@ -1,9 +1,12 @@
-var body = $('html, body');
-var menu = $('.menu');
-var mainNavigation = $('.main-nav');
-var mainHeader = $('.main-header');
-var headerHeight = mainHeader.outerHeight();
+// Variables
+var body = $('html, body'),
+		menu = $('.menu'),
+		mainNavigation = $('.main-nav'),
+		mainHeader = $('.main-header'),
+		links = $('a[href*="#"]'),
+		headerHeight = mainHeader.outerHeight();
 
+// Mobile menu function
 menu.click(function() {
 	mainNavigation.toggleClass('nav-open');
 	$(this).toggleClass('navOpen');
@@ -12,7 +15,11 @@ menu.click(function() {
 	body.toggleClass('disable-scrolling');
 });
 
-$('a[href*="#"]').click(function() {
+/*
+	 If a user clicks an anchor link in
+	 the mobile menu that is on the same page
+*/
+links.click(function() {
 	mainNavigation.removeClass('nav-open');
 	mainHeader.removeClass('open');
 	menu.removeClass('navOpen');
@@ -20,6 +27,7 @@ $('a[href*="#"]').click(function() {
 	body.removeClass('disable-scrolling');
 });
 
+// Headroom.js settings and functions
 mainHeader.headroom({
   offset    : headerHeight,
   tolerance   : { up:10, down:10 },
@@ -41,8 +49,8 @@ mainHeader.headroom({
 });
 
 /*
-Removes ability to scroll background content on iOS
-when a modal is open. Needs to be converted to jQuery still
+	 Removes ability to scroll background
+	 content on iOS when a modal is open.
 */
 document.ontouchmove = function ( event ) {
 	var isTouchMoveAllowed = true, target = event.target;
