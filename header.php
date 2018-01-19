@@ -8,6 +8,7 @@
     <meta name="description" content="description" />
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/css/project-main.min.css">
+    <?php wp_head(); ?>
   </head>
   <body>
     <header class="main-header">
